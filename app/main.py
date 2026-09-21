@@ -1,6 +1,12 @@
+from dotenv import load_dotenv
 import os
 import sys
 import json
+
+load_dotenv()
+
+if not os.getenv("OPENAI_API_KEY"):
+    raise ValueError("Missing OPENAI_API_KEY in environment")
 
 try:
     from extractor import extractor_text

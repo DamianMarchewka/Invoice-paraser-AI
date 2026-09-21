@@ -68,24 +68,22 @@ pip install -r requirements.txt
 
 ## 🔑 API Configuration
 
-Set your API key as an environment variable:
+Create a `.env` file in the project root:
 
 ```
-export OPENAI_API_KEY="your_api_key"
+touch .env
 ```
 
-Or persist it:
-
 ```
-echo 'export OPENAI_API_KEY="your_api_key"' >> ~/.zshrc
-source ~/.zshrc
+OPENAI_API_KEY=your_api_key
 ```
+> ⚠️ Make sure `.env` is added to `.gitignore` to avoid exposing your API key.
 
 ---
 
 ## ▶️ Usage
 
-```bash id="run1"
+```
 python app/main.py data/sample_invoice.pdf
 ```
 
