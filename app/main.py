@@ -31,20 +31,17 @@ def download_path() -> str:
 if __name__ == "__main__":
     user_path = download_path()
 
-    # 1. Extract text
     extracted_text = extractor_text(user_path)
 
     print("\n--- Extracted text ---")
     print(extracted_text)
 
-    # 2. LLM parsing
     try:
         raw_json = parse_invoice(extracted_text)
     except Exception as e:
         print("\n[ERROR] LLM parsing failed:", str(e))
         sys.exit(1)
 
-    # 3. Validation (Pydantic)
     try:
         invoice = Invoice(**raw_json)
     except Exception as e:
@@ -53,6 +50,5 @@ if __name__ == "__main__":
         print(str(e))
         sys.exit(1)
 
-    # 4. Output
     print("\n--- Parsed JSON ---")
     print(json.dumps(invoice.model_dump(), indent=2, ensure_ascii=False))
