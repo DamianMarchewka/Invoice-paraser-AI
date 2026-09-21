@@ -8,8 +8,8 @@ This project is a Proof-of-Concept tool designed for small accounting offices to
 
 ## Important !!
 
-for demo/testing only
-not for production data
+* for demo/testing only
+* not for production data
 
 ---
 
